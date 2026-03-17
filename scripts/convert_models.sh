@@ -5,13 +5,14 @@ OUT=./public/models
 
 mkdir -p $OUT
 
-echo "Converting models to GLB..."
+echo "Optimizing GLB models..."
 
-for file in $RAW/*; do
+for file in $RAW/*.glb; do
+
   name=$(basename "$file")
   base="${name%.*}"
 
-  echo "Processing $name"
+  echo "Processing $base"
 
   gltf-transform optimize \
   "$file" \
@@ -20,8 +21,7 @@ for file in $RAW/*; do
   --texture-compress webp \
   --texture-size 1024 \
   --prune \
-  --weld \
-  --simplify 0.8
+  --simplify 0.85
 
 done
 
