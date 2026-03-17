@@ -71,5 +71,11 @@ export class RuneMaterial extends THREE.ShaderMaterial {
       transparent: true, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending,
     })
   }
-  update(delta: number) { this.uniforms.uTime.value += delta }
+  get time() {
+    return this.uniforms.uTime.value
+  }
+
+  set time(v: number) {
+    this.uniforms.uTime.value = v
+  }
 }

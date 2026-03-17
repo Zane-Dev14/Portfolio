@@ -43,6 +43,7 @@ const CanvasRoot = dynamic(() => import("@/components/CanvasRoot"), {
 export default function Home() {
   return (
     <main
+      suppressHydrationWarning
       style={{
         position: "relative",
         width: "100vw",

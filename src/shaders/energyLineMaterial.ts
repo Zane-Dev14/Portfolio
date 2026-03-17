@@ -64,8 +64,12 @@ export class EnergyLineMaterial extends THREE.ShaderMaterial {
     })
   }
 
-  update(delta: number) {
-    this.uniforms.uTime.value += delta
+  get time() {
+    return this.uniforms.uTime.value
+  }
+
+  set time(v: number) {
+    this.uniforms.uTime.value = v
   }
 }
 
